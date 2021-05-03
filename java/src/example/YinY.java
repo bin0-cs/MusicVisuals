@@ -86,6 +86,7 @@ public void draw() {
    
     yinYang(radius, levels);
     pop();
+    edges();
 
   
 }
@@ -149,6 +150,24 @@ public void guide(float radius, int n) {
     guide(radius/2, n-1);
     pop();
   }
+}
+
+public void edges() {
+
+  float halfHeight = height / 2;
+  float average = 0;
+  float sum = 0;
+
+  for (int i = 0; i < ab.size(); i++) {
+
+    float c = map(i, 0, ab.size(), 0, 255);
+    stroke(c, 255, 255);
+    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);        
+    line(0, i, lerpedBuffer[i] * halfHeight * 4, i);
+    line(width, i, width - (lerpedBuffer[i] * halfHeight * 4), i);
+    line(i, 0, i, lerpedBuffer[i] * halfHeight * 4);
+    line(i, height, i, height - (lerpedBuffer[i] * halfHeight * 4));
+}        
 }
 
     
