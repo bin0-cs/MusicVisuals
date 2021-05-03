@@ -6,6 +6,7 @@ import processing.core.*;
 public class WaveForm
 {
     MyVisual mv;
+    YinY Yy;
     float cy = 0;
 
     public WaveForm(MyVisual mv)
@@ -14,18 +15,23 @@ public class WaveForm
         cy = this.mv.height / 2;
     }
 
+    public WaveForm(YinY Yy) {
+        this.Yy = Yy;
+        cy = this.Yy.height / 2;
+    }
+
     public void render()
     {
-        mv.colorMode(PApplet.HSB);
-        for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
+        Yy.colorMode(PApplet.HSB);
+        for(int i = 0 ; i < Yy.getAudioBuffer().size() ; i ++)
         {
-            mv.stroke(
-                PApplet.map(i, 0, mv.getAudioBuffer().size(), 0, 255)
+            Yy.stroke(
+                PApplet.map(i, 0, Yy.getAudioBuffer().size(), 0, 255)
                 , 255
                 , 255
             );
 
-            mv.line(i, cy, i, cy + cy * mv.getAudioBuffer().get(i));
+            Yy.line(i, cy, i, cy + cy * Yy.getAudioBuffer().get(i));
         }
     }
 }

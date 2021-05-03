@@ -64,13 +64,16 @@ public abstract class Visual extends PApplet
 	}
 
 
-	protected void calculateFrequencyBands() {
-		for (int i = 0; i < bands.length; i++) {
+	protected void calculateFrequencyBands() 
+	{
+		for (int i = 0; i < bands.length; i++) 
+		{
 			int start = (int) pow(2, i) - 1;
 			int w = (int) pow(2, i);
 			int end = start + w;
 			float average = 0;
-			for (int j = start; j < end; j++) {
+			for (int j = start; j < end; j++) 
+			{
 				average += fft.getBand(j) * (j + 1);
 			}
 			average /= (float) w;
