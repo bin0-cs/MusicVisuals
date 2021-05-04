@@ -33,6 +33,7 @@ float lerpedY = y;
 float halfHeight = height / 2;
   float average = 0;
   float sum = 0;
+  float lerpedAverage = 0;
 
 public void keyPressed() {
     if (keyCode >= '0' && keyCode <= '6') {
@@ -49,9 +50,10 @@ public void keyPressed() {
 }
 
 public void setup() {
-  colorMode(HSB);
+  colorMode(RGB);
  
-  startMinim();
+  //startMinim();
+  frameRate(70);
 
   minim = new Minim(this);
   ap = minim.loadFile("nafas.mp3", width);
@@ -88,25 +90,28 @@ public void draw() {
    
     yinYang(radius, levels);
     pop();
-    edges();
+
 
   
 }
  
  public void yinYang(float radius, int n) {
 
-
-    noStroke();
+    //noStroke();
     fill(0);
+    stroke(255);
+    strokeWeight(2);
     arc(0, 0, radius, radius, 0, PI);
     fill(255);
     arc(0, 0, radius, radius, PI, TAU);
   if(n==1) {
 
+    
       fill(0);
       ellipse(-radius/4, 0, radius/2, radius/2);
       fill(255);
       ellipse(radius/4, 0, radius/2, radius/2);
+  
  
       ellipse(-radius/4, 0, radius/4, radius/4);
  
@@ -152,24 +157,6 @@ public void guide(float radius, int n) {
     guide(radius/2, n-1);
     pop();
   }
-}
-
-public void edges() {
-
-  float halfHeight = height / 2;
-  float average = 0;
-  float sum = 0;
-
-  for (int i = 0; i < ab.size(); i++) {
-
-    float c = map(i, 0, ab.size(), 0, 255);
-    stroke(c, 255, 255);
-    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);        
-    line(0, i, lerpedBuffer[i] * halfHeight * 4, i);
-    line(width, i, width - (lerpedBuffer[i] * halfHeight * 4), i);
-    line(i, 0, i, lerpedBuffer[i] * halfHeight * 4);
-    line(i, height, i, height - (lerpedBuffer[i] * halfHeight * 4));
-}        
 }
 
     
