@@ -1,5 +1,7 @@
-package example;
+package c19383843;
 import ddf.minim.*;
+import example.AudioBandsVisual;
+import example.WaveForm;
 import ie.tudublin.*;
 
 // add visuals on the outside

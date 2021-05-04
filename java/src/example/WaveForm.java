@@ -1,5 +1,6 @@
 package example;
 
+import c19383843.YinY;
 import processing.core.*;
 
 // This is an example of a visual that renders the waveform
