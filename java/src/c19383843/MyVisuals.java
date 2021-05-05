@@ -53,6 +53,21 @@ public void settings()
     fullScreen(P3D, 1);
 }
 
+public void setup() {
+    colorMode(RGB);
+   
+    //startMinim();
+    frameRate(70);
+  
+    startMinim();
+    loadAudio("nafas.mp3");
+    ap = getAudioPlayer();
+    ap.play();
+    fft = getFFT();
+
+    
+  }
+
 public void draw(){
     background(0);
     calculateAverageAmplitude();
@@ -77,9 +92,16 @@ public void draw(){
 
             //load menu
 
-
+            break;
         }
-        break;
+
+        case 1 : {
+
+           // yiny.draw();
+            yiny.render();
+           // yiny.update();
+            break;
+        }
     }
 
 
