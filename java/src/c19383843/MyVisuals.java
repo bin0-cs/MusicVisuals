@@ -12,7 +12,9 @@ import processing.core.PFont;
 public class MyVisuals extends Visual{
 
 //Visuals 
+Menu menu;
 YinY yiny;
+
 
 
 Minim minim; // Connect to minim
@@ -30,6 +32,7 @@ float halfHeight = height / 2;
 float average = getAmplitude();
 float sum = 0;
 float lerpedAverage = 0;
+float smoothAmp;
 
 public void keyPressed() {
     if (keyCode >= '0' && keyCode <= '6') {
@@ -50,6 +53,42 @@ public void settings()
     fullScreen(P3D, 1);
 }
 
+public void draw(){
+    background(0);
+    calculateAverageAmplitude();
+    ab = getAudioBuffer();
+    try {
+        calculateFFT();
+    }
+    catch(VisualException e)
+    {
+        e.printStackTrace();
+    }
+    calculateFrequencyBands();
+    smoothAmp = getSmoothedAmplitude();
+    float c = map(getAmplitude(), 0, 1, 0, 255);
+    lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
 
+
+
+    switch(which){
+
+        case 0 : {
+
+            //load menu
+
+
+        }
+        break;
+    }
+
+
+
+
+
+
+
+
+}
 
 }
