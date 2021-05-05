@@ -1,5 +1,6 @@
 package c19383843;
 import ddf.minim.*;
+import ddf.minim.analysis.FFT;
 import example.AudioBandsVisual;
 import example.WaveForm;
 import ie.tudublin.*;
@@ -22,18 +23,15 @@ Minim minim; // Connect to minim
 AudioInput ai; // How to connect to mic
 AudioPlayer ap;
 AudioBuffer ab; // Samples
-
-WaveForm wfY;
-AudioBandsVisual abvY;
-
+FFT fft;
 float[] lerpedBuffer;
 float y = 200;
 float lerpedY = y;
 
 float halfHeight = height / 2;
-  float average = 0;
-  float sum = 0;
-  float lerpedAverage = 0;
+float average = getAmplitude();
+float sum = 0;
+float lerpedAverage = 0;
 
 public void keyPressed() {
     if (keyCode >= '0' && keyCode <= '6') {
@@ -60,8 +58,14 @@ public void setup() {
   ap.play();
   ab = ap.mix; // Connect the buffer to the mp3 file
 
+  startMinim();
+  loadAudio("nafas.mp3");
+  ap = getAudioPlayer();
+  ap.play();
+  fft = getFFT();
+
   center = new PVector(width/2+radius/pow(2, levels), height/2);
-  lerpedBuffer = new float[width];
+  
   
 }
 
@@ -98,7 +102,7 @@ public void draw() {
  public void yinYang(float radius, int n) {
 
     //noStroke();
-    fill(0);
+    fill(average);
     stroke(255);
     strokeWeight(2);
     arc(0, 0, radius, radius, 0, PI);
