@@ -56,10 +56,9 @@ public void settings()
 public void setup() {
     colorMode(RGB);
    
-    //startMinim();
     frameRate(70);
   
-    startMinim();
+   startMinim();
     loadAudio("nafas.mp3");
     ap = getAudioPlayer();
     ap.play();

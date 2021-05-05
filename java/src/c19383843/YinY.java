@@ -24,11 +24,12 @@ public class YinY extends Visual{
 
 
 public void setup() {
+  size(1080, 1080);
   center = new PVector(width/2+radius/pow(2, levels), height/2);
 }
 
 
-public void render() {
+public void draw() {
 
     count = 0;
 
