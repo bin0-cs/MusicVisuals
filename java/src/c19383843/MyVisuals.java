@@ -7,7 +7,7 @@ import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import ddf.minim.analysis.FFT;
-import processing.core.PFont;
+import processing.core.*;
 
 public class MyVisuals extends Visual{
 
@@ -26,6 +26,11 @@ float[] lerpedBuffer;
 float y = 200;
 float lerpedY = y;
 int which = 0;
+float t = 0; 
+float radius;
+int count;
+int levels = 7;
+PVector center;
 
 
 float halfHeight = height / 2;
@@ -33,6 +38,25 @@ float average = getAmplitude();
 float sum = 0;
 float lerpedAverage = 0;
 float smoothAmp;
+
+public void setup() {
+    
+    colorMode(RGB);
+   
+    frameRate(70);
+  
+   startMinim();
+    loadAudio("nafas.mp3");
+    ap = getAudioPlayer();
+    ap.play();
+    fft = getFFT();
+    
+    
+    center = new PVector(width/2+radius/pow(2, levels), height/2);
+    yiny = new YinY(this);
+
+    
+  }
 
 public void keyPressed() {
     if (keyCode >= '0' && keyCode <= '6') {
@@ -50,25 +74,14 @@ public void keyPressed() {
 public void settings()
 {
     // size(600, 600, P3D);
-    fullScreen(P3D, 1);
+    size(1080, 1080);
+    //fullScreen(P3D, SPAN);
+
 }
 
-public void setup() {
-    colorMode(RGB);
-   
-    frameRate(70);
-  
-   startMinim();
-    loadAudio("nafas.mp3");
-    ap = getAudioPlayer();
-    ap.play();
-    fft = getFFT();
-
-    
-  }
 
 public void draw(){
-    background(0);
+    //background(0);
     calculateAverageAmplitude();
     ab = getAudioBuffer();
     try {
@@ -87,7 +100,7 @@ public void draw(){
 
     switch(which){
 
-        case 0 : {
+        default : {
 
             //load menu
 
@@ -96,8 +109,8 @@ public void draw(){
 
         case 1 : {
 
-           // yiny.draw();
             yiny.render();
+           
            // yiny.update();
             break;
         }

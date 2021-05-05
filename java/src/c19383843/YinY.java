@@ -3,52 +3,35 @@ package c19383843;
 import ie.tudublin.Visual;
 import processing.core.*;
 
-public class YinY extends Visual{
-
-  int width,height;
+public class YinY {
   MyVisuals x;
-  float t = 0; 
-  float radius;
-  int count;
-  int levels = 7;
-  PVector center;
 
-    //constructors
-    public YinY(MyVisuals x, int width, int height){
+    //constructor
+    public YinY(MyVisuals x){
       this.x = x;
-      this.width = width;
-      this.height = height;
     }
 
 
+public void render(){
 
+    x.count = 0;
 
-public void setup() {
-  size(1080, 1080);
-  center = new PVector(width/2+radius/pow(2, levels), height/2);
-}
+  x.t = x.map(x.frameCount, 1, 1440, 0, 1);
 
+  x.radius = x.map((float) (x.cos(x.TAU*x.t)/2+0.5), 0, 1, 1000, 10000);
 
-public void draw() {
-
-    count = 0;
-
-  t = map(frameCount, 1, 1440, 0, 1);
-
-  radius = map((float) (cos(TAU*t)/2+0.5), 0, 1, 1000, 10000);
-
-    push();
-    translate(width/2, height/2);
-    rotate(TAU*t*2);
-    guide(radius, levels);
-    pop();
+    x.push();
+    x.translate(x.width/2, x.height/2);
+    x.rotate(x.TAU*x.t*2);
+    guide(x.radius, x.levels);
+    x.pop();
    
-    push();
-    translate(width-center.x, height-center.y);
-    rotate(TAU*t*2);
+    x.push();
+    x.translate(x.width-x.center.x, x.height-x.center.y);
+    x.rotate(x.TAU*x.t*2);
    
-    yinYang(radius, levels);
-    pop();
+    yinYang(x.radius, x.levels);
+    x.pop();
 
 
   
@@ -56,65 +39,64 @@ public void draw() {
  
  public void yinYang(float radius, int n) {
 
-    //noStroke();
-    fill(0);
-    stroke(255);
-    strokeWeight(2);
-    arc(0, 0, radius, radius, 0, PI);
-    fill(255);
-    arc(0, 0, radius, radius, PI, TAU);
+    x.fill(0);
+    x.stroke(255);
+    x.strokeWeight(2);
+    x.arc(0, 0, radius, radius, 0, x.PI);
+    x.fill(255);
+    x.arc(0, 0, radius, radius, x.PI, x.TAU);
   if(n==1) {
 
     
-      fill(0);
-      ellipse(-radius/4, 0, radius/2, radius/2);
-      fill(255);
-      ellipse(radius/4, 0, radius/2, radius/2);
+      x.fill(0);
+      x.ellipse(-radius/4, 0, radius/2, radius/2);
+      x.fill(255);
+      x.ellipse(radius/4, 0, radius/2, radius/2);
   
  
-      ellipse(-radius/4, 0, radius/4, radius/4);
+      x.ellipse(-radius/4, 0, radius/4, radius/4);
  
-      fill(0);
-      ellipse(radius/4, 0, radius/4, radius/4);
+      x.fill(0);
+      x.ellipse(radius/4, 0, radius/4, radius/4);
 
   } 
   
   else {
-    push();
-    translate(radius/4, 0);
-    rotate(TAU*t*2);
+    x.push();
+    x.translate(radius/4, 0);
+    x.rotate(x.TAU*x.t*2);
     yinYang(radius/2, n-1);
-    pop();
+    x.pop();
  
-    push();
-    translate(-radius/4, 0);
-    rotate(TAU*t*2);
+    x.push();
+    x.translate(-radius/4, 0);
+    x.rotate(x.TAU*x.t*2);
     yinYang(radius/2, n-1);
-    pop();
+    x.pop();
   }
 }
  
 
 
 public void guide(float radius, int n) {
-  count++;
+  x.count++;
  
   if (n==1) {
-    if (count==pow(2, levels-1)) {
-      center.set(screenX(0, 0), screenY(0, 0));
+    if (x.count==x.pow(2, x.levels-1)) {
+     x.center.set(x.screenX(0, 0), x.screenY(0, 0));
     }
   } else {
-    push();
-    translate(radius/4, 0);
-    rotate(TAU*t*2);
+    x.push();
+    x.translate(radius/4, 0);
+    x.rotate(x.TAU*x.t*2);
     guide(radius/2, n-1);
-    pop();
+    x.pop();
  
-    push();
-    translate(-radius/4, 0);
-    rotate(TAU*t*2);
+    x.push();
+    x.translate(-radius/4, 0);
+    x.rotate(x.TAU*x.t*2);
     guide(radius/2, n-1);
-    pop();
+    x.pop();
   }
 }
 
