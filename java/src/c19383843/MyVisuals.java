@@ -9,12 +9,13 @@ import ddf.minim.Minim;
 import ddf.minim.analysis.FFT;
 import processing.core.*;
 
+
 public class MyVisuals extends Visual{
 
 //Visuals 
 Menu menu;
 YinY yiny;
-
+Fib fviz;
 
 
 Minim minim; // Connect to minim
@@ -34,6 +35,7 @@ PVector center;
 
 
 float halfHeight = height / 2;
+float halfWidth = width / 2;
 float average = getAmplitude();
 float sum = 0;
 float lerpedAverage = 0;
@@ -54,6 +56,7 @@ public void setup() {
     
     center = new PVector(width/2+radius/pow(2, levels), height/2);
     yiny = new YinY(this);
+    fviz = new Fib(this);
 
     
   }
@@ -81,7 +84,6 @@ public void settings()
 
 
 public void draw(){
-    //background(0);
     calculateAverageAmplitude();
     ab = getAudioBuffer();
     try {
@@ -95,12 +97,13 @@ public void draw(){
     smoothAmp = getSmoothedAmplitude();
     float c = map(getAmplitude(), 0, 1, 0, 255);
     lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
+    background(0);
 
 
 
     switch(which){
 
-        default : {
+        case 0 : {
 
             //load menu
 
@@ -111,6 +114,13 @@ public void draw(){
 
             yiny.render();
            
+          
+            break;
+        }
+        
+        case 2 : {
+                //fviz.render();
+           fib();
            // yiny.update();
             break;
         }
@@ -123,6 +133,25 @@ public void draw(){
 
 
 
+}
+
+public void fib() {
+    float c = map(getSmoothedAmplitude(), 0, 1, 0, 255);
+    float r = 1f;
+    int numPoints = 500;
+    float thetaInc = TWO_PI / (float) numPoints;
+    strokeWeight(2);                
+    float lastX = width / 2, lastY = height / 2;
+    for(int i = 0 ; i < 1000 ; i ++)
+    {
+        stroke(c, 255, 255, 40);
+        float theta = i * (thetaInc + lerpedAverage * 0.01f);
+        float x = width / 2 + sin(theta) * r;
+        float y = height / 2 - cos(theta) * r ;
+        r += 0.5f + (lerpedAverage*0.25f);
+        line(lastX, lastY, x, y);
+        lastY = y;
+    }
 }
 
 }
