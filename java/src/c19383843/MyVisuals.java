@@ -77,8 +77,8 @@ public void keyPressed() {
 public void settings()
 {
     // size(600, 600, P3D);
-    size(1080, 1080);
-    //fullScreen(P3D, SPAN);
+    //size(1080, 1080);
+    fullScreen(P3D, 1);
 
 }
 
@@ -119,9 +119,8 @@ public void draw(){
         }
         
         case 2 : {
-                //fviz.render();
-           fib();
-           // yiny.update();
+        fviz.render();
+          
             break;
         }
     }
@@ -141,7 +140,8 @@ public void fib() {
     int numPoints = 500;
     float thetaInc = TWO_PI / (float) numPoints;
     strokeWeight(2);                
-    float lastX = width / 2, lastY = height / 2;
+    float lastX = width / 2; 
+    float lastY = height / 2;
     for(int i = 0 ; i < 1000 ; i ++)
     {
         stroke(c, 255, 255, 40);
