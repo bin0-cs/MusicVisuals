@@ -1,6 +1,6 @@
 package c19383843;
 
-import ie.tudublin.Visual;
+//import ie.tudublin.Visual;
 import processing.core.*;
 
 public class YinY {
@@ -16,9 +16,9 @@ public void render(){
 
     x.count = 0;
 
-  x.t = x.map(x.frameCount, 1, 1440, 0, 1);
+  x.t = PApplet.map(x.frameCount, 1, 1440, 0, 1);
 
-  x.radius = x.map((float) (x.cos(x.TAU*x.t)/2+0.5), 0, 1, 1000, 10000);
+  x.radius = MyVisuals.map((float) (MyVisuals.cos(PConstants.TAU*x.t)/2+0.5), 0, 1, 1000, 10000);
 
     x.push();
     x.translate(x.width/2, x.height/2);

@@ -17,6 +17,7 @@ public class MyVisuals extends Visual{
 Menu menu;
 YinY yiny;
 Fib fviz;
+Planet plnt;
 
 
 Minim minim; // Connect to minim
@@ -43,6 +44,7 @@ float average = getAmplitude();
 float sum = 0;
 float lerpedAverage = 0;
 float smoothAmp;
+float rotation = 0;
 
 public void setup() {
     
@@ -51,7 +53,6 @@ public void setup() {
     startMinim();
     loadAudio("nafas.mp3");
     ap = getAudioPlayer();
-    ap.play();
     fft = getFFT();
     font = createFont("OpenSans-Regular.ttf", 26);
     textFont(font);
@@ -61,6 +62,7 @@ public void setup() {
     yiny = new YinY(this);
     fviz = new Fib(this);
     menu = new Menu(this);
+    plnt = new Planet(this);
 
     
   }
@@ -124,6 +126,13 @@ public void draw(){
         case 2 : {
 
             fviz.render();
+          
+            break;
+        }
+
+        case 3 : {
+
+            plnt.draw();
           
             break;
         }
