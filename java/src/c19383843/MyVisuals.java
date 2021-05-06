@@ -34,6 +34,7 @@ int count;
 int levels = 7;
 PVector center;
 PFont font;
+float angle = 0;
 
 
 float halfHeight = height / 2;
@@ -116,13 +117,13 @@ public void draw(){
         case 1 : {
 
             yiny.render();
-           
           
             break;
         }
         
         case 2 : {
-        fviz.render();
+
+            fviz.render();
           
             break;
         }

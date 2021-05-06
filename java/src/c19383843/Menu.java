@@ -14,6 +14,30 @@ public class Menu {
     }
 
     public void setup(){
+
+        x.lights();
+        x.strokeWeight(2);
+        float c = MyVisuals.map(x.lerpedAverage, 0, 1, 0, 255);
+        x.stroke(c, 255, 255);
+        x.noFill();
+        x.angle += 0.01f;
+        float s = 100 + (100 * x.lerpedAverage * 10);
+        
+
+            x.pushMatrix();
+            x.translate(x.width / 4, x.height / 2, 0);
+            x.rotateY(x.angle);
+            x.rotateX(x.angle);
+            x.box(s);
+            x.popMatrix();
+
+            x.pushMatrix();
+            x.translate(x.width * 0.75f, x.height / 2, 0);
+            x.rotateY(x.angle);
+            x.rotateX(x.angle);
+            x.box(s);
+            x.popMatrix();
+
         x.textAlign(PConstants.CENTER,PConstants.CENTER);
         x.stroke(255);
         
