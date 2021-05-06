@@ -10,6 +10,7 @@ import ddf.minim.analysis.FFT;
 import processing.core.*;
 
 
+
 public class MyVisuals extends Visual{
 
 //Visuals 
@@ -32,6 +33,7 @@ float radius;
 int count;
 int levels = 7;
 PVector center;
+PFont font;
 
 
 float halfHeight = height / 2;
@@ -44,19 +46,20 @@ float smoothAmp;
 public void setup() {
     
     colorMode(RGB);
-   
     frameRate(70);
-  
-   startMinim();
+    startMinim();
     loadAudio("nafas.mp3");
     ap = getAudioPlayer();
     ap.play();
     fft = getFFT();
+    font = createFont("OpenSans-Regular.ttf", 26);
+    textFont(font);
     
     
     center = new PVector(width/2+radius/pow(2, levels), height/2);
     yiny = new YinY(this);
     fviz = new Fib(this);
+    menu = new Menu(this);
 
     
   }
@@ -78,7 +81,7 @@ public void settings()
 {
     // size(600, 600, P3D);
     //size(1080, 1080);
-    fullScreen(P3D, 1);
+    fullScreen(P3D, 2);
 
 }
 
@@ -105,7 +108,7 @@ public void draw(){
 
         case 0 : {
 
-            //load menu
+            menu.setup();
 
             break;
         }
@@ -134,24 +137,6 @@ public void draw(){
 
 }
 
-public void fib() {
-    float c = map(getSmoothedAmplitude(), 0, 1, 0, 255);
-    float r = 1f;
-    int numPoints = 500;
-    float thetaInc = TWO_PI / (float) numPoints;
-    strokeWeight(2);                
-    float lastX = width / 2; 
-    float lastY = height / 2;
-    for(int i = 0 ; i < 1000 ; i ++)
-    {
-        stroke(c, 255, 255, 40);
-        float theta = i * (thetaInc + lerpedAverage * 0.01f);
-        float x = width / 2 + sin(theta) * r;
-        float y = height / 2 - cos(theta) * r ;
-        r += 0.5f + (lerpedAverage*0.25f);
-        line(lastX, lastY, x, y);
-        lastY = y;
-    }
 }
 
-}
+
