@@ -17,7 +17,8 @@ public class MyVisuals extends Visual{
 Menu menu;
 YinY yiny;
 Fib fviz;
-Planet plnt;
+Visual viz;
+Spiral sprl;
 
 
 Minim minim; // Connect to minim
@@ -36,6 +37,7 @@ int levels = 7;
 PVector center;
 PFont font;
 float angle = 0;
+float border = 0.05f;
 
 
 float halfHeight = height / 2;
@@ -44,7 +46,7 @@ float average = getAmplitude();
 float sum = 0;
 float lerpedAverage = 0;
 float smoothAmp;
-float rotation = 0;
+
 
 public void setup() {
     
@@ -62,7 +64,7 @@ public void setup() {
     yiny = new YinY(this);
     fviz = new Fib(this);
     menu = new Menu(this);
-    plnt = new Planet(this);
+    sprl = new Spiral(this);
 
     
   }
@@ -110,21 +112,21 @@ public void draw(){
     switch(which){
 
         case 0 : {
-
+            
             menu.setup();
 
             break;
         }
 
         case 1 : {
-
+        
             yiny.render();
           
             break;
         }
         
         case 2 : {
-
+            
             fviz.render();
           
             break;
@@ -132,10 +134,14 @@ public void draw(){
 
         case 3 : {
 
-            plnt.draw();
-          
+            sprl.render();
+
             break;
         }
+
+
+
+     
     }
 
 

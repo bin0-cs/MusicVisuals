@@ -14,6 +14,7 @@ public class YinY {
 
 public void render(){
 
+  
     x.count = 0;
 
   x.t = PApplet.map(x.frameCount, 1, 1440, 0, 1);

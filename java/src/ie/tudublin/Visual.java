@@ -20,8 +20,10 @@ public abstract class Visual extends PApplet
 
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
+	public float lerpedAverage = 0;
 
 	
+
 	
 	public void startMinim() 
 	{
@@ -146,4 +148,10 @@ public abstract class Visual extends PApplet
 	public FFT getFFT() {
 		return fft;
 	}
+
+	public float getLerpedAverage(){
+		return  lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
+	}
+
+
 }

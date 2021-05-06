@@ -13,6 +13,8 @@ public class Fib {
 
 
     public void render() {
+        
+
 
         int numPoints = 500;
         float c = MyVisuals.map(z.getSmoothedAmplitude(), 0, 1, 0, 255);
