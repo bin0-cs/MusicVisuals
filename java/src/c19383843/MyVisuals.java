@@ -1,7 +1,6 @@
 package c19383843;
 
 import ie.tudublin.*;
-import java.util.Scanner;
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
@@ -103,7 +102,6 @@ public void draw(){
     }
     calculateFrequencyBands();
     smoothAmp = getSmoothedAmplitude();
-    float c = map(getAmplitude(), 0, 1, 0, 255);
     lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
     background(0);
 

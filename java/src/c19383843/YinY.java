@@ -23,13 +23,13 @@ public void render(){
 
     x.push();
     x.translate(x.width/2, x.height/2);
-    x.rotate(x.TAU*x.t*2);
+    x.rotate(PConstants.TAU*x.t*2);
     guide(x.radius, x.levels);
     x.pop();
    
     x.push();
     x.translate(x.width-x.center.x, x.height-x.center.y);
-    x.rotate(x.TAU*x.t*2);
+    x.rotate(PConstants.TAU*x.t*2);
    
     yinYang(x.radius, x.levels);
     x.pop();
@@ -43,9 +43,9 @@ public void render(){
     x.fill(0);
     x.stroke(255);
     x.strokeWeight(2);
-    x.arc(0, 0, radius, radius, 0, x.PI);
+    x.arc(0, 0, radius, radius, 0, PConstants.PI);
     x.fill(255);
-    x.arc(0, 0, radius, radius, x.PI, x.TAU);
+    x.arc(0, 0, radius, radius, PConstants.PI, PConstants.TAU);
   if(n==1) {
 
     
@@ -65,13 +65,13 @@ public void render(){
   else {
     x.push();
     x.translate(radius/4, 0);
-    x.rotate(x.TAU*x.t*2);
+    x.rotate(PConstants.TAU*x.t*2);
     yinYang(radius/2, n-1);
     x.pop();
  
     x.push();
     x.translate(-radius/4, 0);
-    x.rotate(x.TAU*x.t*2);
+    x.rotate(PConstants.TAU*x.t*2);
     yinYang(radius/2, n-1);
     x.pop();
   }
@@ -83,19 +83,19 @@ public void guide(float radius, int n) {
   x.count++;
  
   if (n==1) {
-    if (x.count==x.pow(2, x.levels-1)) {
+    if (x.count==PApplet.pow(2, x.levels-1)) {
      x.center.set(x.screenX(0, 0), x.screenY(0, 0));
     }
   } else {
     x.push();
     x.translate(radius/4, 0);
-    x.rotate(x.TAU*x.t*2);
+    x.rotate(PConstants.TAU*x.t*2);
     guide(radius/2, n-1);
     x.pop();
  
     x.push();
     x.translate(-radius/4, 0);
-    x.rotate(x.TAU*x.t*2);
+    x.rotate(PConstants.TAU*x.t*2);
     guide(radius/2, n-1);
     x.pop();
   }
