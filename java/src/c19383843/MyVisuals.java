@@ -83,7 +83,7 @@ public void keyPressed() {
 }
 public void settings()
 {
-
+    smooth(8);
     //size(1080, 1080);
     fullScreen(P3D, 1);
     //fullScreen(P3D, SPAN);
@@ -133,6 +133,13 @@ public void draw(){
         case 3 : {
 
             fviz.render();
+
+            break;
+        }
+
+         default : {
+            
+            menu.setup();
 
             break;
         }

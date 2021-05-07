@@ -4,19 +4,15 @@ import processing.core.PApplet;
 
 public class Spiral {
     MyVisuals x;
-    float[] lerpedBuffer;
-    float size = 100;
+
     float angle = 0;
 
     public Spiral(MyVisuals x){
         this.x = x;
-        lerpedBuffer = new float[x.width];
       }
 
 
-
     public void render(){
-
     
         x.colorMode(PApplet.HSB);
         x.fill(PApplet.map(x.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);

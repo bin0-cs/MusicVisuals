@@ -14,7 +14,6 @@ public class Menu {
     }
 
     public void setup(){
-        x.smooth();
 
         x.textAlign(PConstants.CENTER,PConstants.CENTER);
         x.fill(255);

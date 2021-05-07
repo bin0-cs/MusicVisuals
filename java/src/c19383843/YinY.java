@@ -14,7 +14,6 @@ public class YinY {
 
 public void render(){
 
-    x.smooth();
     x.count = 0;
     x.t = PApplet.map(x.frameCount, 1, 1440, 0, 1);
     x.radius = MyVisuals.map((float) (MyVisuals.cos(PConstants.TAU*x.t)/2+0.5), 0, 1, 1000, 10000);
@@ -55,7 +54,7 @@ public void render(){
     x.rotate(PConstants.TAU*x.t*2);
     yinYang(radius/2, n-1);
     x.pop();
-    
+
     x.push();
     x.translate(-radius/4, 0);
     x.rotate(PConstants.TAU*x.t*2);
