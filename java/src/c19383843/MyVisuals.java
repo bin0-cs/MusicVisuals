@@ -44,13 +44,13 @@ float halfWidth = width / 2;
 float average = getAmplitude();
 float sum = 0;
 float lerpedAverage = 0;
-float smoothAmp;
+
 
 
 public void setup() {
     
     colorMode(RGB);
-    frameRate(70);
+    frameRate(60);
     startMinim();
     loadAudio("nafas.mp3");
     ap = getAudioPlayer();
@@ -83,9 +83,10 @@ public void keyPressed() {
 }
 public void settings()
 {
-    // size(600, 600, P3D);
+
     //size(1080, 1080);
-    fullScreen(P3D, 2);
+    fullScreen(P3D, 1);
+    //fullScreen(P3D, SPAN);
 
 }
 
@@ -101,7 +102,6 @@ public void draw(){
         e.printStackTrace();
     }
     calculateFrequencyBands();
-    smoothAmp = getSmoothedAmplitude();
     lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
     background(0);
 
@@ -124,29 +124,20 @@ public void draw(){
         }
         
         case 2 : {
-            
-            fviz.render();
+
+            sprl.render();
           
             break;
         }
 
         case 3 : {
 
-            sprl.render();
+            fviz.render();
 
             break;
         }
-
-
-
      
     }
-
-
-
-
-
-
 
 
 }

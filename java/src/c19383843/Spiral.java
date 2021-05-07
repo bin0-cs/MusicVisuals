@@ -17,10 +17,10 @@ public class Spiral {
 
     public void render(){
 
-        //x.strokeWeight(20);
+    
         x.colorMode(PApplet.HSB);
         x.fill(PApplet.map(x.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
-        //x.stroke(0,15,30);
+        x.noStroke();
         x.translate(x.width/2, x.height/2);
 
 
