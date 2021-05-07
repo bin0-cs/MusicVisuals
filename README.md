@@ -96,28 +96,28 @@ program would allow the user to switch through each visual.
 public void draw(){
 	...
 
-	switch(which){
+switch(which){
 
-			case 0 : {
-				
-				menu.setup();
+		case 0 : {
+			
+			menu.setup();
 
-				break;
-			}
+			break;
+		}
 
-			case 1 : {
-			
-				yiny.render();
-			
-				break;
-			}
-			
-			case 2 : {
+		case 1 : {
+		
+			yiny.render();
+		
+			break;
+		}
+		
+		case 2 : {
 
-				sprl.render();
-			
-				break;
-			}
+			sprl.render();
+		
+			break;
+		}
 
    			... 
    ```
@@ -140,7 +140,6 @@ public void keyPressed() {
 }
 ```
 
-Controls
 
 | Option    |  Control  |
 |-----------|-----------|
