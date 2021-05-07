@@ -4,10 +4,10 @@ package c19383843;
 import processing.core.*;
 
 public class YinY {
-  MyVisuals x;
+  BrunoVisuals x;
 
     //constructor
-    public YinY(MyVisuals x){
+    public YinY(BrunoVisuals x){
       this.x = x;
     }
 
@@ -16,7 +16,7 @@ public void render(){
 
     x.count = 0;
     x.t = PApplet.map(x.frameCount, 1, 1440, 0, 1);
-    x.radius = MyVisuals.map((float) (MyVisuals.cos(PConstants.TAU*x.t)/2+0.5), 0, 1, 1000, 10000);
+    x.radius = BrunoVisuals.map((float) (BrunoVisuals.cos(PConstants.TAU*x.t)/2+0.5), 0, 1, 1000, 10000);
     x.push();
     x.translate(x.width/2, x.height/2);
     x.rotate(PConstants.TAU*x.t*2);

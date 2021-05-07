@@ -10,7 +10,7 @@ import processing.core.*;
 
 
 
-public class MyVisuals extends Visual{
+public class BrunoVisuals extends Visual{
 
 //Visuals 
 Menu menu;

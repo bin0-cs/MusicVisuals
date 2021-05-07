@@ -4,10 +4,10 @@ import processing.core.*;
 
 public class Fib {
 
-    MyVisuals x;
+    BrunoVisuals x;
 
     //constructor
-    public Fib(MyVisuals x){
+    public Fib(BrunoVisuals x){
       this.x = x;
     }
 
@@ -15,7 +15,7 @@ public class Fib {
     public void render() {
     
         int numPoints = 500;
-        float c = MyVisuals.map(x.getSmoothedAmplitude(), 0, 1, 0, 255);
+        float c = BrunoVisuals.map(x.getSmoothedAmplitude(), 0, 1, 0, 255);
         float r = 1f;
         float thetaVar = PConstants.TWO_PI / (float) numPoints;
         x.strokeWeight(2);                

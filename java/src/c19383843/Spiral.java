@@ -3,11 +3,11 @@ package c19383843;
 import processing.core.PApplet;
 
 public class Spiral {
-    MyVisuals x;
+    BrunoVisuals x;
 
     float angle = 0;
 
-    public Spiral(MyVisuals x){
+    public Spiral(BrunoVisuals x){
         this.x = x;
       }
 

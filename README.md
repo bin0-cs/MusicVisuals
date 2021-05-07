@@ -1,37 +1,42 @@
 # Music Visualiser Project
 
-Name:
+Name: Bruno Oltean 
 
-Student Number: 
+Student Number: C19383843
 
-## Instructions
-- Fork this repository and use it a starter project for your assignment
-- Create a new package named your student number and put all your code in this package.
-- You should start by creating a subclass of ie.tudublin.Visual
-- There is an example visualiser called MyVisual in the example package
-- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
+For this assignment I was instructed to create "something beautiful while listening to music".
+
+The song I chose was called ["The Spy From Cairo - Nafas"](https://www.youtube.com/watch?v=3-isjGJTiNs). 
+Inspired by the sound of this track I wanted to create some audio visualisers which reflected the aesthetic 
+and sound of the music. 
+
+With the help of the [r/Processing](https://www.reddit.com/r/processing/) subreddit I created my first visual
+which was yin & yang visual. For the latter visuals I had used all that I had learned during the semester
+to create some more interesting spiralling visuals. All visuals reacted to the amplitude of the music.
+
 
 # Instructions
+- Fork and clone this repo to your computer
+- Load the folder into an IDE of your choice
+- Run Main.java
+- Use Spacebar to play/pause the music 
+- Cycle through the visuals with 0-3
+- 0: Menu
+- 1: YinY.java
+- 2: Spiral.java
+- 3: Fib.java
+
 
 # How it works
+I created classes for each visual and an instance of every class was created in the
+MyVisuals class
+
 
 # What I am most proud of in the assignment
 
-# Markdown Tutorial
 
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
 
 This is a [hyperlink](http://bryanduggan.org)
 
@@ -78,12 +83,14 @@ This is a youtube video:
 
 [![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
 
-This is a table:
 
-| Heading 1 | Heading 2 |
+Controls
+
+| Option    |  Control  |
 |-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
+|Play/Pause |  Spacebar |
+|Menu 	    |     0     |
+|Visual 1   |     1     |
+|Visual 2   |     2     |
+|Visual 3   |     3     |
 

@@ -6,10 +6,10 @@ import processing.core.PConstants;
 
 public class Menu {
 
-    MyVisuals x;
+    BrunoVisuals x;
 
 
-    Menu(MyVisuals x) {
+    Menu(BrunoVisuals x) {
         this.x = x;
     }
 
